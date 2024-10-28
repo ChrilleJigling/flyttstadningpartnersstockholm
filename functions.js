@@ -179,7 +179,7 @@ function scrollToElement(id) {
 
 function redirectToIndex(element) {
     // Redirect to index.html with a query parameter
-    window.location.href = "index.html#"+element;
+    window.location.href = "/#"+element;
 }
 
 function toggleDropdown() {

@@ -1,7 +1,7 @@
 :root {
     --H1-TEXT:65px;
     /* --MAIN-COLOR:#537164; */
-    --MAIN-COLOR:#37ca37;
+    --MAIN-COLOR:#81E546;
     --LIGHT-GREEN:#81E546;
     --DARKER-GREEN:#37ca37;
     --SECONDARY-COLOR:rgba(0,0,0,0.8);
@@ -23,6 +23,8 @@
     --BIG-MARGIN:20px;
     --BIGGEST-MARGIN:30px;
     --BORDER-RADIUS:11px;
+    --REVIEW-IMG-HEIGHT:200px;
+    --SECTION-MARGIN:75px;
 }
 
 * {
@@ -42,9 +44,14 @@ span {
     font-weight: 400;
 }
 
-a:active, a:visited {
+a:active, a:visited, strong:active, strong:visited {
     color: inherit;
     background: transparent;
+}
+
+strong {
+    backface-visibility: hidden;
+    will-change: transform;
 }
 
 body {
@@ -113,6 +120,10 @@ p {
     opacity:0;
     animation: fadeInUp 1.5s ease-in-out forwards; /* Apply the animation */
     animation-delay: 0.1s; /* Start animation after h1 is done */
+}
+
+.mobile {
+    display:none;
 }
 
 a {
@@ -266,18 +277,27 @@ section {
 
 @media only screen and (max-width: 768px) {
     :root {
-        --HEADER-TEXT:34px;
-        --H1-TEXT:30px;
-        --BIG-TEXT:26px;
+        --HEADER-TEXT:32px;
+        --H1-TEXT:26px;
+        --BIG-TEXT:22px;
         --MEDIUM-TEXT:20px;
         --SMALL-TEXT:16px;
-        --SMALLEST-TEXT:13px;
+        --SMALLEST-TEXT:14px;
         --PADDING: 10px;
         --MARGIN: 15px;
         --BIG-MARGIN:20px;
         --BIGGEST-MARGIN:30px;
         --BIGGEST-MARGIN:40px;
         --BORDER-RADIUS:11px;
+        --REVIEW-IMG-HEIGHT:150px;
+    }
+
+    .small-paragraph {
+        font-size:20px;
+    }
+
+    .mobile {
+        display:flex;
     }
 }
  
@@ -297,6 +317,10 @@ button:active {
     margin:var(--MARGIN) 0;
     backface-visibility: hidden;
 
+}
+
+.contact-btn-container {
+    display:none;
 }
 
 .contact-header {
@@ -339,15 +363,41 @@ button:active {
     user-select: none;          /* Standard syntax */
 }
 
+.contact-button-2 {
+    width:240px;
+    height: 55px;
+    line-height:50px;
+    border-radius:var(--BORDER-RADIUS);
+    font-size: 22px;
+    background-color:var(--BTN-COLOR);
+    text-align: center;
+    color:var(--WHITE) !important;
+    font-weight: bold;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin:var(--BIG-MARGIN) 0;
+    position: relative;
+    transition: transform 0.3s ease; /* Smooth transition */
+    backface-visibility: hidden;
+    will-change: transform;
+    -webkit-user-select: none;  /* Chrome, Safari */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* Internet Explorer/Edge */
+    user-select: none;          /* Standard syntax */
+}
+
 .sub-button {
-    width:340px;
+    width:70%;
+    min-width:280px;
     height: 55px;
     line-height:50px;
     border-radius:var(--BORDER-RADIUS);
     font-size: 20px;
-    background-color:var(--BTN-COLOR);
+    background-color:var(--MAIN-COLOR);
     text-align: center;
-    color:var(--WHITE);
     font-weight: bold;
     border: none;
     display: flex;
@@ -369,8 +419,8 @@ button:active {
 }
 
 .discount-button {
-    width:280px;
-    height: 77px;
+    width:270px;
+    height: 73px;
     line-height:50px;
     border-radius:var(--BORDER-RADIUS);
     font-size: 22px;
@@ -402,8 +452,8 @@ button:active {
 }
 
 .discount-button-2 {
-    width:280px;
-    height: 77px;
+    width:270px;
+    height: 73px;
     line-height:50px;
     border-radius:var(--BORDER-RADIUS);
     font-size: 22px;
@@ -447,8 +497,8 @@ button:active {
 }
 
 .prices-button {
-    width:280px;
-    height: 77px;
+    width:270px;
+    height: 73px;
     line-height:50px;
      backface-visibility: hidden;
     will-change: transform;
@@ -476,7 +526,7 @@ button:active {
 }
 
 
-.prices-button:hover, .contact-button:hover, .sub-button:hover {
+.prices-button:hover, .contact-button:hover, .sub-button:hover, .contact-button-2:hover {
     cursor: pointer;
     transform: translateY(-5px); /* Move the button up by 5px */
 }
@@ -533,8 +583,8 @@ button:active {
 } 
 
 .btn-text {
-    height:25px;
-    font-size:28px;
+    height:22px;
+    font-size:26px;
     color:var(--WHITE);
     color:rgba(0,0,0,0.7);
     position: relative;
@@ -551,6 +601,11 @@ button:active {
     position: relative;
     backface-visibility: hidden;
     will-change: transform;
+}
+
+#contact-container {
+    padding:60px 0; 
+    margin-top:0;
 }
 
 
@@ -620,34 +675,64 @@ button:active {
     }
 }
 
-@keyframes hinge {
-    0% {
-        transform: rotate(0deg); /* Starting point */
+@media only screen and (max-width: 1026px) {
+    #faq-btn {
+        display:none;
     }
-    20% {
-        transform: rotate(1deg); /* Slight movement */
-    }
-    40% {
-        transform: rotate(-1deg); /* Move slightly in the opposite direction */
-    }
-    60% {
-        transform: rotate(0.5deg); /* Subtle movement back */
-    }
-    80% {
-        transform: rotate(0deg); /* Return to neutral */
-    }
-    100% {
-        transform: rotate(0deg); /* End at the neutral position */
+
+    #contact-container {
+        padding:0; 
     }
 }
 
 @media only screen and (max-width: 768px) {
     .discount-button {
         animation: pulse3 2s ease-in-out infinite; 
+        width:250px;
+        height: 60px;
+        line-height:50px;
+        font-size: 22px;
+    }
+
+    .review-header {
+        margin-bottom:0;
+    }
+
+    .contact-btn-container {
+        display: flex;
+        width:100%;
+        justify-content: space-around;
+    }
+
+    .discount-button-2, .contact-button {
+        width:250px;
+        height: 65px;
+        line-height:50px;
+        font-size: 22px;
+    }
+
+    .btn-text {
+        font-size:24px;
+        height:21px;
+        position: relative;
+        bottom:4px;
+    }
+
+    .btn-text-2 {
+        font-size:14px;
+    }
+
+    .btn-arrow-2 {
+        height: 25px;
+        width: auto;
+        position: relative;
+        top: 4px;
+    }
+
+    .contact-button-2 {
+        width:47%;
     }
 }
-
-
 
 .second-button {
     margin-left:10px;
@@ -712,6 +797,11 @@ nav {
     padding: 10px 20px;
     transition: transform 0.3s ease, background-color 0.3s ease;
     background-color: rgba(255,255,255,0.8);
+/* 
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 50%); */
+
+
     color: var(--MAIN-COLOR);
     color:var(--TEXT-COLOR);
     z-index: 100;
@@ -933,8 +1023,8 @@ nav ul li a {
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1; /* Change background color on hover */
-    color:var(--MAIN-COLOR);
+    color:var(--BTN-COLOR);
+    font-weight: bold;
 }
 
 /* Show the dropdown when hovering over the dropdown button */
@@ -1028,6 +1118,10 @@ nav ul li a {
 
     .menu-icon.open .line:nth-child(3) {
         transform: translateY(-10px) rotate(-45deg);
+    }
+
+    nav ul li a {
+        font-size: var(--H1-TEXT);
     }
 }
 
@@ -1143,15 +1237,6 @@ main {
     display:none;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -1246,10 +1331,6 @@ main {
     background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay for better text readability */
 }
 
-
-
-
-
 @media only screen and (max-width: 1400px) {
     .landing-margin-left-4 {
         margin-left:35%;
@@ -1267,12 +1348,12 @@ main {
         z-index:20;
         background-color: transparent;
         position: relative;
-        bottom:110px;
+        bottom:10vh;
         padding-left:0;
     }
 
     .big-width-section > h1, .big-width-section > p {
-        padding-left:30px;
+        padding-left:20px;
     }
 
     .big-width-section > h1 {
@@ -1289,8 +1370,12 @@ main {
         display: flex;
     }
 
-    .landing-margin-left, .landing-margin-left-2, .landing-margin-left-3, .landing-margin-left-4 {
+    .landing-margin-left, .landing-margin-left-3, .landing-margin-left-4, .landing-margin-left-2 {
         margin-left:0;
+    }
+
+    #landing-h2 {
+        padding-left:20px;
     }
 
     .landing-margin-left-4 {
@@ -1300,7 +1385,7 @@ main {
     #mobile-overlay {
         display: block;
         width:100vw;
-        height:90vh;
+        height:73vh;
         background: rgb(255,255,255);
         background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
         z-index: 10;
@@ -1311,18 +1396,17 @@ main {
 
     .landing-margin-left-4 {
         position: relative;
-        top:274px;
+        top:20vh;
         margin:0 auto;
+    }
+
+    #home {
+        height:73vh;
     }
 }
 
 
-
- 
-
-
 /* =============== END OF LANDING PAGE ================ */
-
 
 
 /* =============== REVIEWS ================ */
@@ -1399,6 +1483,14 @@ main {
     top:3px;
 }
 
+.review-icon-2 {
+    height:45px;
+    width:auto;
+    margin-right:5px;
+    position: relative;
+    top:3px;
+}
+
 .five-stars-img {
     width:auto;
     height:20px;
@@ -1413,9 +1505,9 @@ main {
 
 .review-phone-right {
     position: absolute;
-    right:-1.5%;
-    top:-18%;
-    width:29%;
+    right:0;
+    top:-10%;
+    width:25%;
     max-width:700px;
     height:auto;
     z-index:10;
@@ -1428,9 +1520,9 @@ main {
 
 .review-phone-left {
     position: absolute;
-    left:-1.5%;
-    top:-18%;
-    width:29%;
+    left:0;
+    top:-10%;
+    width:25%;
     max-width:700px;
     height:auto;
     z-index:10;
@@ -1467,6 +1559,8 @@ main {
     display:none;
 }
 
+
+
 @media only screen and (max-width: 1600px) {
     .review-block > h2 {
         font-size: 1.8rem;
@@ -1479,12 +1573,15 @@ main {
     }
 
     .review-phone-right, .review-phone-left {
-        width:31%;
+        width:27%;
     }
-    
 }
 
 @media only screen and (max-width: 1026px) {
+    .review-text {
+        width:90%;
+    }
+
     .review-text-container {
         width:100%;
         text-align: center;
@@ -1521,6 +1618,8 @@ main {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin-top:0;
+        font-size: 1.10rem;
     }
 
     .review-icon {
@@ -1529,12 +1628,8 @@ main {
     }
 
     .review-block {
-        margin: 1.333% 0.333%;
+        margin:0;
         width: 32%;
-    }
-
-    .review-block > h2 {
-        font-size: 1.15rem;
     }
 
     #landing-bg {
@@ -1554,7 +1649,6 @@ main {
 
 }
 
-
 @keyframes fadeInUpAndDown {
     0% {
         opacity: 0;
@@ -1573,34 +1667,12 @@ main {
     }
 }
 
-@keyframes fillBar {
-    to {
-        width: var(--stat-width);
-    }
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
         transform: translateY(-20px);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
     }
 }
 
@@ -1646,7 +1718,7 @@ main {
 
 .info-container {
     width:85%;
-    max-width: 1700px;
+    max-width: 2000px;
     height:50%;
     display:flex;
     position: relative;
@@ -1658,7 +1730,7 @@ main {
     text-align: center;
     background-color: lightcyan;
     background-color: white;
-    border:2px solid var(--MAIN-COLOR);
+    border:2px solid var(--WHITE);
     border-radius: var(--BORDER-RADIUS);
 }
 
@@ -1685,9 +1757,11 @@ main {
 
 .info-block-img {
     width:100%;
-    height:200px;
+    height:var(--REVIEW-IMG-HEIGHT);
     display: block;
     object-fit: cover;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
 }
 
 .info-text{
@@ -1740,8 +1814,13 @@ main {
 
 
 @media only screen and (max-width: 768px) {
-  
-
+    .info-block > div > h4 {
+       font-size:var(--SMALL-TEXT);
+    }
+    
+    .info-block > div > h3 {
+        font-size:var(--BIG-TEXT);
+    }
   
 }
 
@@ -1804,6 +1883,16 @@ background: linear-gradient(335deg, rgba(234,232,225,1) 45%, rgba(255,255,255,1)
 
 }
 
+#contact-button {
+    margin-top:5px;
+}
+
+.contact-checkbox {
+    font-weight: 400;
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
 .contact-container > div > p {
     margin:0;
 }
@@ -1819,6 +1908,7 @@ background: linear-gradient(335deg, rgba(234,232,225,1) 45%, rgba(255,255,255,1)
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top:var(--BIGGEST-MARGIN);
 }
 
 .call-box h2 {
@@ -1900,6 +1990,10 @@ background: linear-gradient(335deg, rgba(234,232,225,1) 45%, rgba(255,255,255,1)
 
 input:active, input:focus, textarea:active, textarea:focus {
     outline: none;
+}
+
+select:hover {
+    cursor: pointer;
 }
 
 .form-group input,
@@ -2007,6 +2101,10 @@ footer {
     width:25%;
 }
 
+#footer-link-jobs {
+    margin-top:var(--BIG-MARGIN);
+}
+
 .footer-text-section > p, .footer-text-section > a > p {
     color:var(--SECONDARY-COLOR);
     font-size:var(--SMALL-TEXT);
@@ -2028,8 +2126,25 @@ footer {
 
 
 @media only screen and (max-width: 1026px) {
+    #footer-link-jobs {
+        margin-top:5px;
+    }
+
+    .footer-logo {
+        top:15px;
+    }
+
+    .footer-text-section > p, .footer-text-section > a > p {
+        font-size:var(--MEDIUM-TEXT);
+    }
+
+    .footer-text-section > h3 {
+        font-size:var(--BIG-TEXT);
+    }
+
     .call-box {
         width:100%;
+        margin-top:0;
     }
 
     .footer-inner-container {
@@ -2091,16 +2206,16 @@ footer {
     width:85%;
     max-width: 1700px;
     margin: 0 auto;
-    background-color: var(--SOFT-COLOR);
     background-color: white;
     border-radius: var(--BORDER-RADIUS);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    display: flex;    flex-direction: row;
+    display: flex;    
+    flex-direction: row;
     position: relative;
     z-index: 10;
-    border:5px solid black;
     border:2px solid var(--MAIN-COLOR);
+    margin-bottom:var(--SECTION-MARGIN);
 }
 
 .article-content-wrapper {
@@ -2141,7 +2256,7 @@ footer {
     margin-bottom: 15px;
     color: var(--BTN-COLOR);
     color: var(--SECONDARY-COLOR); 
-
+    width:auto;
 }
 
 .article-content h2 {
@@ -2151,6 +2266,7 @@ footer {
     margin-bottom: 10px;
     color: var(--BTN-COLOR);
     color: var(--SECONDARY-COLOR);
+    width:auto;
 }
 
 .article-content p {
@@ -2241,8 +2357,13 @@ footer {
     color:white;
 }
 
+.faq-question {
+    font-weight: bold;
+}
+
 .faq-question-full {
     width:94.5% !important;
+    width:85.5% !important;
     max-width: 1120px !important;
 }
 
@@ -2329,11 +2450,11 @@ footer {
 
 @media only screen and (max-width: 760px) {
     .faq-item {
-        width:100%;
+        width:90%;
     }
 
     .faq-question {
-        font-size:18px;
+        font-size:var(--SMALL-TEXT);
     }
 
     .faq-item-container {
@@ -2354,7 +2475,7 @@ footer {
 /* =============== PRICES SUBPAGE ================ */
 
 .benefits, .company-info, .about-us  {
-    border:3px solid var(--LIGHT-BLUE);
+   /*  border:3px solid var(--LIGHT-BLUE); */
 }
 
 .text-content > p, .text-content > h2, .benefits >h2  {
@@ -2480,7 +2601,7 @@ footer {
     }
 
     .text-content > h2 {
-        font-size:28px;
+        font-size: var(--BIG-TEXT);
     }
 }
 
@@ -2675,15 +2796,14 @@ footer {
     width:80%;
     position: relative;
     margin:0 auto;
-    height:100vh;
-    padding-top:120px;
+    padding-top:100px;
     background-color: var(--SOFT-COLOR);
     background-color: transparent;
     border-radius: var(--BORDER-RADIUS);
 }
 
 .discount-header {
-    font-weight: 30px !important;
+    font-size: 30px !important;
     font-weight: 700;
 }
 
@@ -2784,6 +2904,17 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@keyframes jump {
+    0% {
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 
@@ -2902,7 +3033,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="date"], 
 }
 
 .form-inner-container {
-    padding:20px;
+    padding:0 20px;
     overflow: hidden;
     border-bottom-left-radius: var(--BORDER-RADIUS);
     border-bottom-right-radius: var(--BORDER-RADIUS);
@@ -2944,7 +3075,6 @@ textarea {
     }
 }
 
-
 @media only screen and (max-width: 1026px) {
     .boooking-container {
         max-width:95%;
@@ -2974,6 +3104,14 @@ textarea {
 
 
 @media only screen and (max-width: 768px) {
+    .discount-header-2 {
+        font-size:32px;
+    }
+
+    .discount-header{
+        font-size:24px !important;
+    }
+
     .flex-row {
         flex-direction: column;
     }

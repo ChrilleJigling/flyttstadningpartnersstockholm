@@ -50,18 +50,18 @@
 
             <div class="nav-info-container">
                 <div class="nav-info-block" onClick="scrollToElement('footer');" loading="eager">
-                    <img src="https://uploads.staticjw.com/tr/trappstadningistockholm/map.webp" alt="map icon">
+                    <img src="https://uploads.staticjw.com/tr/trappstadningistockholm/map.webp" alt="map icon" loading="lazy" width="128" height="128">
                     <span>Franzéngatan 30,<br>112 16 Stockholm</span>
                 </div>
 
                 <div class="nav-info-block" onClick="scrollToElement('footer');" loading="eager"> 
-                    <img src="https://uploads.staticjw.com/tr/trappstadningistockholm/time.webp" alt="clock icon">
+                    <img src="https://uploads.staticjw.com/tr/trappstadningistockholm/time.webp" alt="clock icon" loading="lazy" width="128" height="128">
                     <span>Mån - Sön:<br>08:00 - 17:00</span>
                 </div>
 
                 <a href="tel:+010 58 558 08">
                     <div class="nav-info-block">
-                        <img src="https://uploads.staticjw.com/tr/trappstadningistockholm/phone-call.webp" alt="phone icon" loading="eager">
+                        <img src="https://uploads.staticjw.com/tr/trappstadningistockholm/phone-call.webp" alt="phone icon" loading="lazy" width="128" height="128">
                         <span>Ring nu:<br>010 58 558 08</span>
                     </div>
                 </a>
@@ -76,7 +76,7 @@
             </div>
             
             <ul class="nav-links" id="nav-menu">
-                <li><a class="nav-link" href="index.html">Hem</a></li>
+                <li><a class="nav-link" href="/">Hem</a></li>
                 <li class="dropdown">
                     <a class="nav-link" onClick="toggleDropdown(this);">Priser / Boka Online</a>
                     <ul id="dropdown-ul" class="dropdown-content" style="display:none;">
@@ -85,13 +85,20 @@
                     </ul>
                 </li>
                 <li><a class="nav-link" href="/omoss">Varför Välja Oss?</a></li>
-                <li><a class="nav-link" onClick="scrollToElement('checklist')">Checklista</a></li>
+
+                ##if_url_is_not_index { ##	
+                    <li><a class="nav-link" onClick="redirectToIndex('checklist')">Checklista</a></li>
+                ## } end_if##	
+
+                ##if_url_is_index { ##	
+                    <li><a class="nav-link" onClick="scrollToElement('checklist')">Checklista</a></li>
+                ## } end_if##	
                 <li><a class="nav-link" href="/kontakt">Kontakta Oss</a></li>
             </ul>
             ## } end_if##	
             ## } end_if##	
 
-            ##if_url_is_flytthjälp { ##	
+            ##if_url_is_flytthjalp { ##	
             ##if_url_is_priser { ##	
             <ul class="nav-info-list">
                 <li style="color:#188bf6;">
@@ -150,20 +157,20 @@
             <img fetchpriority="high" id="landing-bg" class="background-image" src="https://uploads.staticjw.com/tr/trappstadningistockholm/bg.jpeg" alt="background-image" loading="eager" alt="header ##title_tag##">
             <img fetchpriority="high" class="mobile-background-image" src="https://uploads.staticjw.com/tr/trappstadningistockholm/bg3.webp" alt="background-image" loading="eager" alt="header ##title_tag##">
             <div id="mobile-overlay"></div>
-        </div>     
+        </div>   
     </main> 
 
     <!-- END -->
 
     <!-- REVIEW SECTION -->
     <section id="reviews">
-        <img class="review-phone-left" src="https://uploads.staticjw.com/tr/trappstadningistockholm/667a7261a9ef862d6dcd99de.gif" alt="##title_tag## garanti" loading="lazy" width="128" height="128">
+        <img class="review-phone-left" src="https://uploads.staticjw.com/tr/trappstadningistockholm/flyttstadnings-garanti.webp" alt="##title_tag## garanti" loading="lazy" width="128" height="128">
 
         <div class="review-divider-outer-container">
             <div class="review-divider-container">
                 <div class="review-block">
                   <!--   <img class="five-stars-img" src="./images/5stars.gif" alt="5 stars"> -->
-                    <h2 id="review-h2-first"><img class="review-icon" src="https://uploads.staticjw.com/tr/trappstadningistockholm/review.webp" alt="review icon" loading="lazy">Betyg 4.7 / 5</h2>
+                    <h2 id="review-h2-first"><img class="review-icon-2" src="https://uploads.staticjw.com/tr/trappstadningistockholm/betyg-ikon.webp" alt="review icon" loading="lazy" width="128" height="128">Betyg 4.7 / 5</h2>
                     <p>967 Omdömen</p>
                 </div>
 
@@ -173,7 +180,7 @@
                 </div>
 
                 <div class="review-block">
-                    <h2><img class="review-icon" src="https://uploads.staticjw.com/tr/trappstadningistockholm/owl.webp" loading="lazy" alt="review icon" width="128" height="128">+13 Års</h2>
+                    <h2><img class="review-icon-2" src="https://uploads.staticjw.com/tr/trappstadningistockholm/uggla-bla.webp" loading="lazy" alt="review icon" width="128" height="128">+13 Års</h2>
                     <p>Efarenhet</p>
                 </div>
             </div>
@@ -191,12 +198,12 @@
             </p>
 
             <div class="button-container">
-                <a href="contact.html" class="contact-button"><img class="btn-arrow" src="https://uploads.staticjw.com/tr/trappstadningistockholm/user.webp" alt="right arrow icon" loading="lazy">Kontakta Oss </a>
+                <a href="/kontakt" class="contact-button"><img class="btn-arrow" src="https://uploads.staticjw.com/tr/trappstadningistockholm/user.webp" alt="right arrow icon" loading="lazy" width="128" height="128">Kontakta Oss </a>
             </div>
         </div>
 
         <h2 class="bottom-header">Hur fungerar det?</h2>
-        <img class="review-phone-right" src="https://uploads.staticjw.com/tr/trappstadningistockholm/667a741501d4bd82e3951058.gif" alt="##title_tag## högst betyg" loading="lazy">
+        <img class="review-phone-right" src="https://uploads.staticjw.com/tr/trappstadningistockholm/flyttstadning_omdome.webp" alt="##title_tag## högst betyg" loading="lazy">
     </section>
 
 
@@ -314,7 +321,7 @@
         </div>
         <div class="button-container section-margin">
             <a href="/priser" class="discount-button-2 green-btn">
-                <div class="btn-text white-color">SE PRISER <img class="btn-arrow-2" width="128" height="128" src="https://uploads.staticjw.com/tr/trappstadningistockholm/arrow.webp" alt="right arrow" loading="lazy"></div>
+                <div class="btn-text">SE PRISER <img class="btn-arrow-2" width="128" height="128" src="https://uploads.staticjw.com/tr/trappstadningistockholm/arrow.webp" alt="right arrow" loading="lazy"></div>
                 <div class="second-btn-text">SMIDIG ONLINEBOKNING</div>
             </a>
         </div>
@@ -373,8 +380,8 @@
                 <div class="footer-text-section">
                     <h3>Kontakta Oss:</h3>
                     <p><strong class="blue-color">Alla dagar:</strong> 08:00 - 17:00</p>
-                    <p><strong class="blue-color">Ring:</strong> 0105855800</p>
-                    <p><strong class="blue-color">Övrig tid:</strong> kontaktformulär</p>
+                    <p><strong class="blue-color">Ring:</strong><a href="tel:0105855800"> <strong>0105855800</strong></a></p>
+                    <p><strong class="blue-color">Övrig tid:</strong><a href="/kontakt"> <strong>kontaktformulär</strong></a> </p>
                     <p>Vi svarar snarast möjligt inom 24 timmar</p>
                 </div>
                 <div class="footer-text-section">
@@ -382,8 +389,7 @@
                     <a href="/avtal"><p class="blue-color">GDPR</p></a>
                     <a href="/avtal"><p class="blue-color">Intregritets Policy</p></a>
                     <a href="/avtal"><p class="blue-color">Avtal & Villkor</p></a>
-                    <br>
-                    <a href="/avtal"><p class="blue-color">Jobba Med Oss</p></a>
+                    <a id="footer-link-jobs" href="/avtal"><p class="blue-color">Jobba Med Oss</p></a>
                 </div>
                 <div class="footer-text-section">
                     <h3>Om Oss</h3>
@@ -395,7 +401,7 @@
             <div class="footer-bottom-container">
                 <p>
                     ##copyright## <br>
-                    Orgnr: 559020-5133. Alla rättigheter förbehållna.
+                    Orgnr: 559020-5133
                 </p>
             </div>
         </div>
