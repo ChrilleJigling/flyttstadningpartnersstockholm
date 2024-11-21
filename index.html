@@ -42,10 +42,10 @@
     <header>
         <nav id="nav" class="navbar">
             ##if_url_is_index { ##	
-                <img onClick="scrollToElement('nav-scroll');" id="logo" src="https://uploads.staticjw.com/tr/trappstadningistockholm/logo.gif" alt="logo ##title_tag##" loading="eager" width="293" height="73">
+                <img onClick="scrollToElement('nav-scroll');" id="logo" src="https://uploads.staticjw.com/tr/trappstadningistockholm/logo_partner_transparent.webp" alt="logo ##title_tag##" loading="eager" width="293" height="73">
             ## } end_if##	
             ##if_url_is_not_index { ##	
-                <a href="##home_url##" class="nav-logo-link"><img id="logo" src="https://uploads.staticjw.com/tr/trappstadningistockholm/logo.gif" alt="logo" loading="eager" width="293" height="73"></a>
+                <a href="##home_url##" class="nav-logo-link"><img id="logo" src="https://uploads.staticjw.com/tr/trappstadningistockholm/logo_partner_transparent.webp" alt="logo" loading="eager" width="293" height="73"></a>
             ## } end_if##	
 
             <div class="nav-info-container">
@@ -80,7 +80,7 @@
                 <li class="dropdown">
                     <a class="nav-link" onClick="toggleDropdown(this);">Priser / Boka Online</a>
                     <ul id="dropdown-ul" class="dropdown-content" style="display:none;">
-                        <li><a href="/flytthjalp">Flytthjälp</a></li>
+                        <li style="padding-top:5px;"><a href="/flytthjalp">Flytthjälp</a></li>
                         <li><a href="/priser">Flyttstädning</a></li>
                     </ul>
                 </li>
@@ -143,7 +143,7 @@
     <main id="home">
         <div class="big-width-section">
             <h1 id="landing-h1" class="landing-margin-left">##title_tag##</h1>
-            <h2 id="landing-h2" class="landing-margin-left-2">GRATIS FÖNSTERPUTS. <br> + HELA 15% RABATT <br> PÅ FLYTTSTÄDNINGEN</h2>
+            <h2 id="landing-h2" class="landing-margin-left-2">GRATIS FÖNSTERPUTS. <br> <span id="hero-discount-text">+ HELA 15% RABATT</span> <br> PÅ FLYTTSTÄDNINGEN</h2>
             <p class="small-paragraph landing-margin-left-3">Om du även bokar flytthjälp.</p>
             <div class="button-container landing-margin-left-4">
                 <a href="/priser" class="discount-button">
@@ -209,12 +209,11 @@
 
     <!-- INFO SECTION / HOW IT WORKS -->
     <section id="info">
-        <img class="info-bg-img" src="https://uploads.staticjw.com/tr/trappstadningistockholm/flytt1-1.webp" alt="##title_tag## Omdöme">
+        <!-- <img class="info-bg-img" src="https://uploads.staticjw.com/tr/trappstadningistockholm/flytt1-1.webp" alt="##title_tag## Omdöme"> -->
         <div class="info-container">
             <div id="info-block-1" class="info-block">
-                <img class="info-block-img" src="https://uploads.staticjw.com/tr/trappstadningistockholm/why-us.jpg" alt="info block image" loading="lazy" alt="boka ##title_tag##">
+                <img class="info-block-img" src="https://uploads.staticjw.com/tr/trappstadningistockholm/steg1-1.webp" alt="info block image" loading="lazy" alt="boka ##title_tag##">
                 <div>
-                    <h3>Steg 1</h3>
                     <h4>Boka smidigt via vårt onlineformulär.</h4>
                     <p>
                          Du väljer allt från datum till nyckel info.
@@ -227,9 +226,8 @@
             </div>
 
             <div id="info-block-2" class="info-block">
-                <img class="info-block-img" src="https://uploads.staticjw.com/tr/trappstadningistockholm/why-us.jpg" alt="info block image" loading="lazy" alt="##title_tag## pris">
+                <img class="info-block-img" src="https://uploads.staticjw.com/tr/trappstadningistockholm/steg2-2.webp" alt="info block image" loading="lazy" alt="##title_tag## pris">
                 <div>
-                    <h3>Steg 2</h3>
                     <h4>Skriftlig bekräftelse på mailen.</h4>
                     <p>
                         Vi går igenom din bokning och när vi
@@ -242,9 +240,8 @@
             </div>
 
             <div id="info-block-3" class="info-block">
-                <img class="info-block-img" src="https://uploads.staticjw.com/tr/trappstadningistockholm/why-us.jpg" alt="info block image" loading="lazy" alt="##title_tag## recensioner">
+                <img class="info-block-img" src="https://uploads.staticjw.com/tr/trappstadningistockholm/steg3-1.webp" alt="info block image" loading="lazy" alt="##title_tag## recensioner">
                 <div>
-                    <h3>Steg 3</h3>
                     <h4>Se till att personalen kommer in.</h4>
                     <p>
                         Du behöver inte vara på plats under
@@ -410,7 +407,7 @@
     ## } end_if##
 
 </body>
-<script src='https://uploads.staticjw.com/tr/trappstadningistockholm/functionsv8.js'></script>
+<script src='https://uploads.staticjw.com/tr/trappstadningistockholm/functionsmin11.js'></script>
 </html>
 ##statistics##
 

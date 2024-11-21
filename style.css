@@ -9,6 +9,7 @@
     --TEXT-COLOR:rgba(255,255,255,1);
     --TEXT-COLOR:rgba(0,0,0,0.8);
     --SOFT-COLOR:#EAE8E1;
+    --SOFT-COLOR2:#F6F6F6;
     --WHITE:WHITE;
     --LIGHT-BLUE:#3CACF6;
     --RED-COLOR:#e93d3d;
@@ -141,7 +142,7 @@ a:focus {
 }
 
 section {
-    padding:60px 0;
+    padding:75px 0;
     position: relative;
 }
 
@@ -334,7 +335,7 @@ button:active {
     text-align: center;
     font-size: var(--MEDIUM-TEXT);
     margin-bottom:10px;
-    margin-top:50px;
+    margin-top:20px;
 }
 
 .contact-button {
@@ -412,10 +413,6 @@ button:active {
     -moz-user-select: none;     /* Firefox */
     -ms-user-select: none;      /* Internet Explorer/Edge */
     user-select: none;          /* Standard syntax */
-}
-
-.sub-button:hover {
-    background-color: var(--BTN-COLOR);
 }
 
 .discount-button {
@@ -609,6 +606,8 @@ button:active {
 }
 
 
+
+
 @keyframes pulse {
 0% {
     transform:scale(1);
@@ -686,6 +685,35 @@ button:active {
 }
 
 @media only screen and (max-width: 768px) {
+    .contact-button-2, .contact-button {
+        width:190px;
+        height: 46px;
+        line-height:46px;
+        font-size: 18px;
+    }
+
+    .hide-mobile {
+        display:none !important;
+    }
+
+    .booking-checkmark-list {
+       
+    }
+
+    .checkmark-2 {
+        margin-right:5px !important;
+    }
+
+    .booking-checkmark-list li {
+        margin-bottom:5px !important;
+        display:flex;
+        margin:0 auto;
+    }
+
+    .booking-header {
+        margin-bottom:0;
+    }
+
     .discount-button {
         animation: pulse3 2s ease-in-out infinite; 
         width:250px;
@@ -701,10 +729,10 @@ button:active {
     .contact-btn-container {
         display: flex;
         width:100%;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
-    .discount-button-2, .contact-button {
+    .discount-button-2 {
         width:250px;
         height: 65px;
         line-height:50px;
@@ -729,9 +757,7 @@ button:active {
         top: 4px;
     }
 
-    .contact-button-2 {
-        width:47%;
-    }
+
 }
 
 .second-button {
@@ -1001,13 +1027,11 @@ nav ul li a {
     top:30px;
     left:-15px;
     width:100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    background-color: WHITE;
     z-index: 100;
     text-align: left;
     margin-left:20px;
-    border-bottom-left-radius: var(--BORDER-RADIUS);
-    border-bottom-right-radius: var(--BORDER-RADIUS);
+    border-radius: var(--BORDER-RADIUS);
 }
 
 .dropdown-content li {
@@ -1331,6 +1355,10 @@ main {
     background: rgba(0, 0, 0, 0.5); /* Optional: Adds a dark overlay for better text readability */
 }
 
+#hero-discount-text {
+    font-weight:bold;
+}
+
 @media only screen and (max-width: 1400px) {
     .landing-margin-left-4 {
         margin-left:35%;
@@ -1402,6 +1430,10 @@ main {
 
     #home {
         height:73vh;
+    }
+
+    #hero-discount-text {
+        color:var(--RED-COLOR);
     }
 }
 
@@ -1685,7 +1717,7 @@ main {
 #info {
     width:100%;
     margin:0 auto;
-    background-color: white;
+    background-color: var(--SOFT-COLOR);
     display:flex;
     position: relative;
     flex-direction: column;
@@ -1732,6 +1764,7 @@ main {
     background-color: white;
     border:2px solid var(--WHITE);
     border-radius: var(--BORDER-RADIUS);
+    box-shadow: 0px 0px 15px 2px #D5d5d5FF;
 }
 
 .info-block > div {
@@ -1756,12 +1789,13 @@ main {
 }
 
 .info-block-img {
-    width:100%;
-    height:var(--REVIEW-IMG-HEIGHT);
+    width:auto;
+    height:auto;
     display: block;
     object-fit: cover;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
+    margin:0 auto;
 }
 
 .info-text{
@@ -1864,8 +1898,7 @@ main {
 .text-section {
     height:auto;
     text-align: center !important;
-    background: rgb(234,232,225) !important;
-background: linear-gradient(335deg, rgba(234,232,225,1) 45%, rgba(255,255,255,1) 80%) !important;
+    background: var(--SOFT-COLOR2)
 }
 
 .contact-icon {
@@ -1884,17 +1917,31 @@ background: linear-gradient(335deg, rgba(234,232,225,1) 45%, rgba(255,255,255,1)
 }
 
 #contact-button {
-    margin-top:5px;
+    margin-top:15px;
+    margin-right: auto; 
+    display: block; 
+    width: 240px;
+    height: 55px;
+    font-size:20px;
 }
 
 .contact-checkbox {
     font-weight: 400;
     backface-visibility: hidden;
     will-change: transform;
+    font-size:18px;
 }
 
 .contact-container > div > p {
     margin:0;
+}
+
+.contact-checkbox input {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 6px;
+    margin-right: 5px;
 }
 
 .call-box {
@@ -2179,9 +2226,13 @@ footer {
 
     .contact-container {
         width:90%;
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-self: center;
         justify-content: center;
+    }
+
+    .text-section {
+        padding: 70px 20px 0 20px;
     }
     
     .half-section {
@@ -2208,14 +2259,13 @@ footer {
     margin: 0 auto;
     background-color: white;
     border-radius: var(--BORDER-RADIUS);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px 2px #D5d5d5FF;
     overflow: hidden;
     display: flex;    
     flex-direction: row;
     position: relative;
     z-index: 10;
-    border:2px solid var(--MAIN-COLOR);
-    margin-bottom:var(--SECTION-MARGIN);
+    border:2px solid var(--WHITE);
 }
 
 .article-content-wrapper {
@@ -2239,9 +2289,15 @@ footer {
     /* border-right: 3px solid var(--MAIN-COLOR);  */
 }
 
-.article-image img {
-    width: 100%;
+.article-image-1 {
+    width: auto;
     height: 100%;
+    object-fit: cover;
+}
+
+.article-image-2 {
+    width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -2499,7 +2555,7 @@ footer {
     padding: 20px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px 2px #D5d5d5FF;
 }
 
 #why-us-h1 {
@@ -2586,6 +2642,10 @@ footer {
 }
 
 @media only screen and (max-width: 1026px) {
+    .about-us, .company-info {
+        flex-direction: column-reverse;
+    }
+
     .image-content {
         width:100%;
     }
@@ -2774,12 +2834,20 @@ footer {
     }
 
     .quote-container {
-        width:90%;
+        width:100%;
     }
 
     .checkmark {
         margin-left:0px;
     }
+
+    .info-section {
+        display:flex;
+        margin-bottom:var(--MARGIN);
+        width: 100%;
+        justify-content: center;
+    }
+
 }
 
 
@@ -3104,12 +3172,24 @@ textarea {
 
 
 @media only screen and (max-width: 768px) {
+    .countdown {
+        margin-bottom:0px;
+    }
+
+    .booking-nav {
+        box-shadow:none;
+    }
+
+    .booking-container {
+        padding-top:75px;
+    }
+
     .discount-header-2 {
-        font-size:32px;
+        font-size:26px;
     }
 
     .discount-header{
-        font-size:24px !important;
+        font-size:22px !important;
     }
 
     .flex-row {
@@ -3125,11 +3205,12 @@ textarea {
     }
 
     .quote-container {
-        font-size:16px;
+        font-size:15px;
+        margin-bottom:0;
     }
 
     .quote-line {
-        width: 7px;
+        width: 8px;
         height: 54px;
     }
 
@@ -3143,6 +3224,7 @@ textarea {
 
     .booking-container {
         width:95%;
+        padding-top:75px;
     }
     
     .info-section > img {
